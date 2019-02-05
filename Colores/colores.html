@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+	
+	body{
+		background-image: url("color.jpeg");
+		background-size: 100%;
+	}
+	h1{
+		text-align: center;
+		font-family:"Bahnschrift SemiLight SemiConde", Helvetica, sans-serif;
+		color: white;
+		font-size: 300%;
+		text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+	}
+	
+	div.uno{
+		float: right;
+		margin-top: 5%;
+		margin-right: 10%;
+	}
+	div.tres{
+		float: right;
+		margin-right: 20%;
+		background-color: white;
+	}
+	table.img{
+	border-collapse: collapse;
+	background-color: white;
+	}
+	table.form{
+		border-spacing: 20px;
+		margin-left: 15%;
+		margin-top: 10%;
+		size: 150%;
+		
+		
+	}
+	tr.img,th.img,td.img{
+		border: 4px solid black;
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+	tr.img1,th.img1,td.img1{
+		border: 4px solid black;
+		padding-right: 20px;
+		padding-left: 20px;
+		color: white;
+	}
+	td.img{
+		text-align: center;
+	}
+	
+	th.form{
+		border: none;
+		border: 2px solid gray;
+		border-radius: 10px;
+		background-color: white;
+		padding: none;
+		text-align:left;
+	}
+	select{
+		
+		margin-left: 10px;
+		height: 30px;
+		width: 160px;
+		border-radius: 10px;
+		background-color: white ;
+	}
+	button{
+		background: transparent ;
+		border: none;
+	}
+	button.white{
+		background: transparent ;
+		border: none;
+		color: white;
+	}
+	
+	
+</style>
+
+<script>
+		
+		function res1(elem)
+		{
+			/*Banda 1*/
+			var b1 = document.getElementById("b1");
+			b1.innerHTML = elem.innerText;			
+			
+		}
+		
+		function res2(elem)
+		{
+			
+			/*Banda 2*/
+			var b2 = document.getElementById("b2");
+			b2.innerHTML = elem.innerText;
+			
+		}
+		
+		function resM(elem)
+		{
+			/*Multiplicador*/
+			var mult = document.getElementById("mult");
+			mult.innerHTML = elem.innerText;
+	
+		}
+		
+		function resT(elem)
+		{
+			
+			/*Tolerancia*/
+			var tol = document.getElementById("tol");
+			tol.innerHTML = elem.innerText;
+			
+			
+		}
+		function resTotal()
+		{
+			
+			var colores = parseInt(document.getElementById("b1")) + parseInt(getElementById("b2"));
+			var todo = parseInt(colores) * document.getElementById("mult");
+			document.getElementById("resul").innerHTML = todo + " Ω " + document.getElementById("tol");
+		}
+			
+</script>
+</head>
+
+<body>
+
+<h1> Calculador de código de colores de resistencias de 4 bandas </h1>
+
+<div class="uno">
+	<table class="img">
+		<tr class="img">
+			<th class="img"> COLOR </th>
+			<th class="img"> 1ª Banda </th>
+			<th class="img"> 2ª Banda </th>
+			<th class="img"> Multiplicador </th>
+			<th class="img"> Tolerancia </th>
+		</tr>
+		<tr class="img1" style="background-color:black";>
+			<th class="img"> Black </th>
+			<td class="img" ><button class="white" onclick="res1(this)" > 0 </button></td>
+			<td class="img" ><button class="white" onclick="res2(this)" > 0 </button></td>
+			<td class="img" ><button class="white" onclick="resM(this)" > 1 </button></td>
+			<td class="img" >  </td>
+		</tr>
+		<tr class="img1" style="background-color:brown";>
+			<th class="img"> Brown </th>
+			<td class="img" ><button class="white" onclick="res1(this)"> 10 </button></td>
+			<td class="img" ><button class="white" onclick="res2(this)"> 1 </button></td>
+			<td class="img" ><button class="white" onclick="resM(this)"> 10 </button></td>
+			<td class="img" ><button class="white" onclick="resT(this)"> 1% </button></td>
+		</tr>
+		<tr class="img" style="background-color:red";>
+			<th class="img"> Red </th>
+			<td class="img"><button onclick="res1(this)" > 20 </button> </td>
+			<td class="img"><button onclick="res2(this)"> 2 </button></td>
+			<td class="img"><button onclick="resM(this)"> 100 </td>
+			<td class="img"><button onclick="resT(this)"> 2% </td>
+		</tr>
+		<tr class="img" style="background-color:orange";>
+			<th class="img"> Orange </th>
+			<td class="img"><button onclick="res1(this)" > 30 </button></td>
+			<td class="img"><button onclick="res2(this)"> 3 </button></td>
+			<td class="img"><button onclick="resM(this)"> 1000 </td>
+			<td class="img">  </td>
+		</tr>
+		<tr class="img" style="background-color:yellow";>
+			<th class="img"> Yellow </th>
+			<td class="img"><button onclick="res1(this)" > 40 </button></td>
+			<td class="img"><button onclick="res2(this)"> 4 </button></td>
+			<td class="img"><button onclick="resM(this)"> 10000 </td>
+			<td class="img">  </td>
+		</tr>
+		<tr class="img" style="background-color:green";>
+			<th class="img"> Green </th>
+			<td class="img"><button onclick="res1(this)" > 50 </button></td>
+			<td class="img"><button onclick="res2(this)"> 5 </button></td>
+			<td class="img"><button onclick="resM(this)"> 100000 </td>
+			<td class="img"><button onclick="resT(this)"> 0.5% </td>
+		</tr>
+		<tr class="img" style="background-color:blue";>
+			<th class="img"> Blue </th>
+			<td class="img"><button onclick="res1(this)" > 60 </button></td>
+			<td class="img"><button onclick="res2(this)"> 6 </button></td>
+			<td class="img"><button onclick="resM(this)"> 1000000 </td>
+			<td class="img"><button onclick="resT(this)"> 0.25% </td>
+		</tr>
+		<tr class="img" style="background-color:violet";>
+			<th class="img"> Violet </th>
+			<td class="img"><button onclick="res1(this)" > 70 </button></td>
+			<td class="img"><button onclick="res2(this)"> 7 </button></td>
+			<td class="img"><button onclick="resM(this)"> 10000000 </td>
+			<td class="img"><button onclick="resT(this)"> 0.10% </td>
+		</tr>
+		<tr class="img" style="background-color:gray";>
+			<th class="img"> Grey </th>
+			<td class="img"><button onclick="res1(this)" > 80 </button></td>
+			<td class="img"><button onclick="res2(this)"> 8 </button></td>
+			<td class="img"><button onclick="resM(this)"> 1 </td>
+			<td class="img"><button onclick="resT(this)"> 0.05% </td>
+		</tr>
+		<tr class="img" style="background-color:white";>
+			<th class="img"> White </th>
+			<td class="img"><button onclick="res1(this)" > 90 </button></td>
+			<td class="img"><button onclick="res2(this)"> 9 </button></td>
+			<td class="img"><button onclick="resM(this)"> 0.1 </td>
+			<td class="img">  </td>
+		</tr>
+		<tr class="img" style="background-color:gold";>
+			<th class="img"> Gold </th>
+			<td class="img">  </td>
+			<td class="img">  </td>
+			<td class="img"><button onclick="resM(this)"> 0.01 </td>
+			<td class="img"><button onclick="resT(this)"> 5% </td>
+		</tr>
+		<tr class="img" style="background-color:silver";>
+			<th class="img"> Silver </th>
+			<td class="img">  </td>
+			<td class="img">  </td>
+			<td class="img"><button onclick="resM(this)"> 0.01 </td>
+			<td class="img"><button onclick="resT(this)"> 10% </td>
+		</tr>		
+			
+	</table>
+</div>
+
+
+	
+<div class="dos">
+
+
+
+	<table class="form";>
+	<tr class="form">
+	<th class="form">
+	  1ª banda:   
+		<p id="b1"></p>
+	  </th>
+	  </tr>
+	  
+	 <tr class="form">
+	 <th class="form">
+	  2ª banda:   
+	  <p id="b2"></p>
+	  </th>
+	  </tr>
+	  
+	 <tr class="form">
+	 <th class="form">
+	  Multiplicador:   
+	   <p id="mult"></p>
+	  </th>
+	  </tr>
+	  
+	 <tr class="form">
+	 <th class="form">
+	  Tolerancia:   
+	 <p id="tol"></p>
+	  </th>
+	  </tr>
+	  
+	</table>
+	
+
+</div>
+<div class="tres">
+		
+		<input type="button" value="Calcular" onclick="resTotal()"></input>
+		<br>		
+		<p id="resul"></p>
+		
+	</div>
+	
+</body>
+</html>
