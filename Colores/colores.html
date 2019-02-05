@@ -81,52 +81,6 @@
 	
 	
 </style>
-
-<script>
-		
-		function res1(elem)
-		{
-			/*Banda 1*/
-			var b1 = document.getElementById("b1");
-			b1.innerHTML = elem.innerText;			
-			
-		}
-		
-		function res2(elem)
-		{
-			
-			/*Banda 2*/
-			var b2 = document.getElementById("b2");
-			b2.innerHTML = elem.innerText;
-			
-		}
-		
-		function resM(elem)
-		{
-			/*Multiplicador*/
-			var mult = document.getElementById("mult");
-			mult.innerHTML = elem.innerText;
-	
-		}
-		
-		function resT(elem)
-		{
-			
-			/*Tolerancia*/
-			var tol = document.getElementById("tol");
-			tol.innerHTML = elem.innerText;
-			
-			
-		}
-		function resTotal()
-		{
-			
-			var colores = parseInt(document.getElementById("b1")) + parseInt(getElementById("b2"));
-			var todo = parseInt(colores) * document.getElementById("mult");
-			document.getElementById("resul").innerHTML = todo + " Ω " + document.getElementById("tol");
-		}
-			
-</script>
 </head>
 
 <body>
@@ -269,13 +223,69 @@
 	
 
 </div>
-<div class="tres">
+	<div class="tres">
 		
 		<input type="button" value="Calcular" onclick="resTotal()"></input>
 		<br>		
 		<p id="resul"></p>
 		
 	</div>
+	<script>
+
+		var valor_b1 = 0;
+		var valor_b2 = 0;
+		var valor_m = 0;
+		var valor_t = 0;
+		
+		function res1(elem)
+		{
+			/*Banda 1*/
+			var b1 = document.getElementById("b1");
+			valor_b1=parseInt(b1.innerText, 10);
+			b1.innerHTML = elem.innerText;			
+			
+		}
+		
+		function res2(elem)
+		{
+			
+			/*Banda 2*/
+			var b2 = document.getElementById("b2");
+			valor_b2=parseInt(b2.innerText, 10);
+			b2.innerHTML = elem.innerText;
+			
+		}
+		
+		function resM(elem)
+		{
+			/*Multiplicador*/
+			var mult = document.getElementById("mult");
+			valor_m=parseInt(mult.innerText, 10);
+			mult.innerHTML = elem.innerText;
 	
+		}
+		
+		function resT(elem)
+		{
+			
+			/*Tolerancia*/
+			var tol = document.getElementById("tol");
+			valor_t=elem.innerText;
+			tol.innerHTML = elem.innerText;
+			
+			
+		}
+		function resTotal()
+		{
+			var colores = 0;
+			var todo = 0;
+			//var colores = parseInt(document.getElementById("b1")) + parseInt(getElementById("b2"));
+			colores = valor_b1 + valor_b2;
+			//var todo = parseInt(colores) * document.getElementById("mult");
+			todo = colores * valor_m;
+			document.getElementById("resul").innerHTML = todo.toString() + " Ω " + valor_t;
+		}
+			
+	</script>
 </body>
 </html>
